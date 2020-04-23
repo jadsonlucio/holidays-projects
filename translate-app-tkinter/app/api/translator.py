@@ -51,10 +51,10 @@ class Translator(ABC):
         self.set_target_language(self.target_language)
 
     def save_cache(self, i):
-        with open(f"cache/source/{i}.txt", "w", encoding="utf-8") as f:
+        with open(f"app/cache/source/{i}.txt", "w", encoding="utf-8") as f:
             f.write(self.text)
 
-        with open(f"cache/target/{i}.txt", "w", encoding="utf-8") as f:
+        with open(f"app/cache/target/{i}.txt", "w", encoding="utf-8") as f:
             f.write(self.translated_text)
 
     def reset_cache(self):
@@ -78,7 +78,6 @@ class Translator(ABC):
         self.source_language = source_language
         self.target_language = target_language
         self.reset_cache()
-
         if target_language:
             if target_language in self.valid_languages:
                 self.set_target_language(target_language)
@@ -90,16 +89,15 @@ class Translator(ABC):
             else:
                 raise Exception(f"Language {target_language} is't an valid language")
 
-        end_point = 498
         cont = 1
-        for i, text_batch in enumerate(self.pre_process_text(text)[end_point:]):
+        for i, text_batch in enumerate(self.pre_process_text(text)):
             print(text_batch)
             self.callback(self)
             self._translate_text(text_batch)
             if self.restart_page and cont%self.restart_page==0:
                 self.restart()
             if save_cache:
-                self.save_cache(i+end_point)
+                self.save_cache(i)
             cont+=1
 
         return self._cache_translated_target
@@ -116,7 +114,7 @@ class Translator(ABC):
         else:
             translated_text = element2.text
 
-        if text.count("[...]") != translated_text.count("[...]") or len(translated_text) < 0.80 * len(text):
+        if text.count("[...]") != translated_text.count("[...]") or len(translated_text) < 0.70 * len(text):
             print(f"Entrou sleep por {self.sleep_reload} segundos")
             sleep(self.sleep_reload)
 

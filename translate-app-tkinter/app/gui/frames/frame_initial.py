@@ -1,13 +1,11 @@
+import pyperclip
 import tkinter as tk
+
 from tkinter import ttk
 from tkinter import filedialog
-import pyperclip
 
-from utils.thread import run_async
 from ..frames.frame_initial_w import FrameInitialWidgets
-
-
-
+from ...utils.thread import run_async
 
 class FrameInitial(tk.Frame):
     def __init__(self, window, *args, **kwargs):

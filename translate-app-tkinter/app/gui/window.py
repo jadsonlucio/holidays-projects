@@ -1,8 +1,7 @@
 import tkinter as tk
 
-from api.services import ServiceManager
 from .frames.frame_initial import FrameInitial
-
+from ..api.services import ServiceManager
 
 class Window(tk.Tk):
     def __init__(self, title, width, height, pos_x=0, pos_y=0, *args, **kwargs):

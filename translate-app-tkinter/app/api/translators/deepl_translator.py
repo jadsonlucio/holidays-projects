@@ -31,5 +31,4 @@ class DeeplTranslator(Translator):
         sleep(1)
         element4 = self.driver.find_element_by_xpath("//div[@dl-test='translator-target-lang-list']")
         element4 = element4.find_element_by_xpath(f"//button[text()='{language}']")
-        print(element4)
         element4.click()
