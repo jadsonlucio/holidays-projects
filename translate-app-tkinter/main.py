@@ -1,4 +1,4 @@
-from gui.window import Window
+from app.gui.window import Window
 
 __version__ = "0.0.3"
 __author__ = "Jadson Lucio"
