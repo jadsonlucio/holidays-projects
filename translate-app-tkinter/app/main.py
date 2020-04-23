@@ -1,6 +1,6 @@
 from gui.window import Window
 
-__version__ = "0.0.1"
+__version__ = "0.0.3"
 __author__ = "Jadson Lucio"
 __email__ = "jadson.santos@arapiraca.ufal.br"
 
