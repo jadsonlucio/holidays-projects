@@ -1,6 +1,6 @@
 import tkinter as tk
 from tkinter import ttk
-from frames.tk_widgets.custom_widgets import ScrolledText
+from ..frames.tk_widgets.custom_widgets import ScrolledText
 
 class FrameInitialWidgets(tk.Frame):
     def __init__(self, frame_initial, *args, **kwargs):

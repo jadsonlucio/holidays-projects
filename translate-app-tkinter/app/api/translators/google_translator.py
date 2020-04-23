@@ -9,6 +9,7 @@ LANGUAGE_ITEM_TEXT_CLASS = "language_list_item_language_name"
 OPEN_SOURCE_LANGUAGES_LIST = "tlid-open-source-language-list"
 OPEN_TARGET_LANGUAGES_LIST = "tlid-open-target-language-list"
 
+
 def get_language_list_element(driver, language):
     elements = driver.find_elements_by_xpath(f"//div[contains(@class, 'language-list')]//div[contains(@class, 'language_list_section')]//div[contains(@class, 'language_list_item_wrapper')]//*[contains(text(), '{language}')]")
     element = None
@@ -18,6 +19,7 @@ def get_language_list_element(driver, language):
             element = e
 
     return element
+
 
 class GoogleTranslator(Translator):
     def __init__(self, sleep_request, sleep_reload, sleep_translation=2):

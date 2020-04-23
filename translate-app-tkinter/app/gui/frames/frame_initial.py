@@ -3,8 +3,9 @@ from tkinter import ttk
 from tkinter import filedialog
 import pyperclip
 
-from frames.frame_initial_w import FrameInitialWidgets
 from utils.thread import run_async
+from ..frames.frame_initial_w import FrameInitialWidgets
+
 
 
 
@@ -70,7 +71,7 @@ class FrameInitial(tk.Frame):
 
         try:
             self.widgets.create_progress_bar()
-            self.manager.set_service(self.service_name, 4, 300)
+            self.manager.set_service(self.service_name, 10, 10)
             translator = self.manager.get_translator(self.service_name)
 
             self.widgets.combobox_t_from["values"] = translator.get_valid_languages()
@@ -94,6 +95,7 @@ class FrameInitial(tk.Frame):
     def translate_text(self, event):
         def set_variable(translator):
             variable.set(int(100 * len(translator._cache_translated_source)/len(text)))
+            self.set_target_text(translator._cache_translated_target)
 
         try:
             variable = tk.IntVar()
@@ -102,7 +104,9 @@ class FrameInitial(tk.Frame):
             translator.callback = set_variable
 
             self.widgets.create_progress_bar(variable)
-            text_tranlated = translator.translate_text(text)
+            source_language = self.widgets.combobox_t_from.get()
+            target_language = self.widgets.combobox_t_into.get()
+            text_tranlated = translator.translate_text(text, target_language=target_language, source_language=source_language)
             self.set_target_text(text_tranlated)
         finally:
             self.widgets.destroy_progress_bar()

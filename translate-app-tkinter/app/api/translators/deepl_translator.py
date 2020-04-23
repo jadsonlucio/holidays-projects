@@ -6,6 +6,7 @@ INPUT_TEXT_CLASS = "lmt__source_textarea"
 OUTPUT_TEXT_CLASS = "lmt__target_textarea"
 LANGUAGE_ITEM_TEXT_CLASS = "lmt__language_select__menu"
 
+
 class DeeplTranslator(Translator):
     def __init__(self, sleep_request, sleep_reload, sleep_translation=10):
         super().__init__(WEBSITE_URL, INPUT_TEXT_CLASS, OUTPUT_TEXT_CLASS, 5000,
