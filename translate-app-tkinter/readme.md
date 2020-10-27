@@ -4,7 +4,7 @@ This project has the objective of build an simple app with python, tkinter and s
 
 - [x] Google translate
 - [x] Deepl translate
-- []  Bing translate
+- [ ]  Bing translate
  
 # Getting Started
 
