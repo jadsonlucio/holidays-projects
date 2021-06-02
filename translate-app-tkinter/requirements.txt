@@ -14,7 +14,7 @@ pyparsing==2.4.7
 pytest==5.4.1
 selenium==3.141.0
 six==1.14.0
-urllib3==1.25.8
+urllib3==1.26.5
 virtualenv==20.0.18
 wcwidth==0.1.9
 zipp==3.1.0
